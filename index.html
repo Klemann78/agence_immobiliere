@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#F8F5EF" />
+<meta name="description" content="Chrystelle Couedor, mandataire immobilier à Carrières-sur-Seine : accompagnement en vente, achat, location et estimation." />
+<title>Chrystelle Couedor — Conseil immobilier</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link href="assets/css/site.css" rel="stylesheet" />
+<script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script defer src="assets/js/config.js"></script>
+<script defer src="assets/js/store.js"></script>
+<script defer src="assets/js/public.js"></script>
+</head>
+<body>
+<div class="site-shell" style="font-family: 'Jost', sans-serif; font-weight: 400; background: #F8F5EF; color: #16202E; font-size: 17px; line-height: 1.65">
+<!-- HEADER -->
+<header class="public-header" style="border-bottom: 1px solid #E3DCCB; background: #F8F5EF">
+<div style="max-width: 1200px; margin: 0 auto; padding: 22px 40px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px">
+<a href="#accueil" style="display: flex; align-items: center; gap: 14px">
+<span style="width: 46px; height: 46px; border-radius: 50%; border: 1px solid #8A6A36; display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; color: #8A6A36">C</span>
+<span style="display: flex; flex-direction: column; line-height: 1.2">
+<span style="font-family: 'Cormorant Garamond', serif; font-size: 25px; font-weight: 600; letter-spacing: 0.02em">Chrystelle Couedor</span>
+<span style="font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #5B6572">Conseil immobilier</span>
+</span>
+</a>
+<button aria-expanded="false" aria-label="Ouvrir le menu" class="mobile-menu-toggle" id="menu-toggle" type="button">☰</button><nav aria-label="Navigation principale" id="public-nav" style="display: flex; flex-wrap: wrap; align-items: center; gap: 28px; font-size: 15px">
+<a href="#services">Services</a>
+<a href="#biens">Mes biens</a>
+<a href="#accompagnement">Accompagnement</a>
+<a href="#secteur">Secteur</a>
+<a href="#apropos">À propos</a>
+<a href="#contact">Contact</a>
+<a class="btn-dark" href="#estimation" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 22px; background: #16202E; color: #F8F5EF; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase">Estimer mon bien</a>
+</nav>
+</div>
+</header>
+<!-- HERO -->
+<section id="accueil" style="max-width: 1200px; margin: 0 auto; padding: 88px 40px 96px; box-sizing: border-box; display: flex; flex-wrap: wrap; align-items: center; gap: 64px">
+<div style="flex: 1 1 460px; min-width: 0">
+<p style="margin: 0 0 24px; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #8A6A36; font-weight: 500">Mandataire immobilier · Carrières-sur-Seine et alentours</p>
+<h1 style="margin: 0 0 28px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 68px; line-height: 1.05; letter-spacing: -0.01em">Un accompagnement immobilier sur mesure, de l'estimation à la signature.</h1>
+<p style="margin: 0 0 40px; max-width: 520px; font-weight: 300; font-size: 19px; color: #3A4452">Vente, achat ou location : je vous accompagne avec exigence, transparence et disponibilité, pour que votre projet se déroule dans la sérénité.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 16px">
+<a class="btn-dark" href="#estimation" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 32px; background: #16202E; color: #F8F5EF; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase">Estimation offerte</a>
+<a href="#contact" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 32px; border: 1px solid #16202E; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase">Me contacter</a>
+</div>
+<div style="margin-top: 56px; display: flex; flex-wrap: wrap; gap: 36px; font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500; color: #16202E">
+<span>Vente</span><span style="color: #8A6A36">·</span><span>Achat</span><span style="color: #8A6A36">·</span><span>Location</span>
+</div>
+</div>
+<div style="flex: 1 1 380px; min-width: 0; position: relative; padding: 0 0 24px 24px">
+<div style="position: absolute; left: 0; bottom: 0; right: 24px; top: 24px; border: 1px solid #8A6A36"></div>
+<div style="position: relative; height: 580px; background: #16202E; display: flex; align-items: flex-end; justify-content: flex-start; padding: 28px; box-sizing: border-box">
+<span style="font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #D8BC8A">Portrait de Chrystelle · à remplacer</span>
+</div>
+</div>
+</section>
+<!-- SERVICES -->
+<section id="services" style="background: #FFFFFF; border-top: 1px solid #E3DCCB; border-bottom: 1px solid #E3DCCB">
+<div style="max-width: 1200px; margin: 0 auto; padding: 96px 40px; box-sizing: border-box">
+<p style="margin: 0 0 16px; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #8A6A36; font-weight: 500">Mes services</p>
+<h2 style="margin: 0 0 64px; max-width: 720px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 48px; line-height: 1.12">Un interlocuteur unique pour chaque étape de votre projet</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 32px">
+<article style="flex: 1 1 300px; min-width: 0; border-top: 2px solid #16202E; padding-top: 28px">
+<span style="font-family: 'Cormorant Garamond', serif; font-size: 20px; color: #8A6A36">01</span>
+<h3 style="margin: 8px 0 16px; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 34px">Vendre</h3>
+<p style="margin: 0 0 24px; color: #3A4452">Une stratégie de vente claire pour valoriser votre bien au juste prix et dans les meilleurs délais.</p>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 16px">
+<li>Estimation argumentée</li>
+<li>Mise en valeur du bien et photos soignées</li>
+<li>Diffusion de l'annonce et prospection acquéreurs</li>
+<li>Organisation et suivi des visites</li>
+<li>Négociation jusqu'à la signature</li>
+</ul>
+</article>
+<article style="flex: 1 1 300px; min-width: 0; border-top: 2px solid #16202E; padding-top: 28px">
+<span style="font-family: 'Cormorant Garamond', serif; font-size: 20px; color: #8A6A36">02</span>
+<h3 style="margin: 8px 0 16px; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 34px">Acheter</h3>
+<p style="margin: 0 0 24px; color: #3A4452">Je vous aide à trouver le bien qui correspond vraiment à votre projet de vie et à votre budget.</p>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 16px">
+<li>Définition de vos critères et de votre budget</li>
+<li>Recherche et sélection de biens adaptés</li>
+<li>Visites et analyse de chaque bien</li>
+<li>Aide à la négociation</li>
+<li>Coordination avec le notaire et le financement</li>
+</ul>
+</article>
+<article style="flex: 1 1 300px; min-width: 0; border-top: 2px solid #16202E; padding-top: 28px">
+<span style="font-family: 'Cormorant Garamond', serif; font-size: 20px; color: #8A6A36">03</span>
+<h3 style="margin: 8px 0 16px; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 34px">Louer</h3>
+<p style="margin: 0 0 24px; color: #3A4452">Propriétaire ou locataire, un accompagnement simple et rigoureux pour sécuriser votre démarche.</p>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 16px">
+<li>Estimation du loyer</li>
+<li>Diffusion de l'annonce et organisation des visites</li>
+<li>Sélection des dossiers candidats</li>
+<li>Appui dans les démarches de mise en location</li>
+</ul>
+</article>
+</div>
+</div>
+</section>
+<!-- MES BIENS -->
+<section id="biens" style="max-width: 1200px; margin: 0 auto; padding: 96px 40px; box-sizing: border-box">
+<p style="margin: 0 0 16px; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #8A6A36; font-weight: 500">Mes biens</p>
+<h2 style="margin: 0 0 72px; max-width: 720px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 48px; line-height: 1.12">Une sélection de biens à vendre et à louer</h2>
+<!-- Biens à vendre -->
+<div id="vente" style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 32px; padding-bottom: 20px; border-bottom: 1px solid #16202E">
+<h3 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 38px">Biens à vendre</h3>
+<span style="font-size: 14px; color: #5B6572">Annonces mises à jour régulièrement</span>
+</div>
+<div aria-live="polite" class="property-grid" id="properties-sale" style="">
+
+
+
+</div>
+<!-- Biens à louer -->
+<div id="location" style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 32px; padding-bottom: 20px; border-bottom: 1px solid #16202E">
+<h3 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 38px">Biens à louer</h3>
+<span style="font-size: 14px; color: #5B6572">Annonces mises à jour régulièrement</span>
+</div>
+<div aria-live="polite" class="property-grid" id="properties-rent" style="">
+
+
+
+</div>
+<p style="margin: 0; font-size: 15px; color: #3A4452">Vous ne trouvez pas ce que vous cherchez ? <a href="#contact" style="color: #8A6A36; text-decoration: underline">Contactez-moi</a> : certains biens ne sont pas encore en ligne.</p>
+</section>
+<!-- ACCOMPAGNEMENT -->
+<section id="accompagnement" style="background: #16202E; color: #F8F5EF">
+<div style="max-width: 1200px; margin: 0 auto; padding: 96px 40px; box-sizing: border-box">
+<p style="margin: 0 0 16px; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #D8BC8A; font-weight: 500">Mon accompagnement</p>
+<h2 style="margin: 0 0 64px; max-width: 760px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 48px; line-height: 1.12">Une méthode simple, un suivi à chaque étape</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 40px">
+<div style="flex: 1 1 220px; min-width: 0">
+<div style="font-family: 'Cormorant Garamond', serif; font-size: 44px; color: #D8BC8A; line-height: 1">1</div>
+<h3 style="margin: 16px 0 10px; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 26px">Écoute</h3>
+<p style="margin: 0; font-weight: 300; color: #D5D9DF; font-size: 16px">Un premier échange pour comprendre votre situation, vos attentes et votre calendrier.</p>
+</div>
+<div style="flex: 1 1 220px; min-width: 0">
+<div style="font-family: 'Cormorant Garamond', serif; font-size: 44px; color: #D8BC8A; line-height: 1">2</div>
+<h3 style="margin: 16px 0 10px; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 26px">Stratégie</h3>
+<p style="margin: 0; font-weight: 300; color: #D5D9DF; font-size: 16px">Une analyse du marché local et un plan d'action clair, adapté à votre projet.</p>
+</div>
+<div style="flex: 1 1 220px; min-width: 0">
+<div style="font-family: 'Cormorant Garamond', serif; font-size: 44px; color: #D8BC8A; line-height: 1">3</div>
+<h3 style="margin: 16px 0 10px; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 26px">Action</h3>
+<p style="margin: 0; font-weight: 300; color: #D5D9DF; font-size: 16px">Visites, négociation, suivi du dossier : je m'occupe de l'essentiel et vous tiens informé(e).</p>
+</div>
+<div style="flex: 1 1 220px; min-width: 0">
+<div style="font-family: 'Cormorant Garamond', serif; font-size: 44px; color: #D8BC8A; line-height: 1">4</div>
+<h3 style="margin: 16px 0 10px; font-family: 'Cormorant Garamond', serif; font-weight: 600; font-size: 26px">Signature</h3>
+<p style="margin: 0; font-weight: 300; color: #D5D9DF; font-size: 16px">Un accompagnement jusqu'à l'acte authentique, avec le notaire, en toute sérénité.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- ESTIMATION -->
+<section id="estimation" style="max-width: 1200px; margin: 0 auto; padding: 96px 40px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 64px; align-items: flex-start">
+<div style="flex: 1 1 420px; min-width: 0">
+<p style="margin: 0 0 16px; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #8A6A36; font-weight: 500">Estimation offerte</p>
+<h2 style="margin: 0 0 24px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 48px; line-height: 1.12">Quelle est la valeur réelle de votre bien ?</h2>
+<p style="margin: 0 0 24px; color: #3A4452">Une estimation sérieuse repose sur la connaissance du marché local et sur l'analyse précise de votre bien : emplacement, état, atouts et ventes comparables.</p>
+<p style="margin: 0; color: #3A4452">Laissez-moi vos informations : je reviens vers vous rapidement pour convenir d'un rendez-vous, sans engagement.</p>
+</div>
+<form id="estimate-form" novalidate="novalidate" style="flex: 1 1 420px; min-width: 0; background: #FFFFFF; border: 1px solid #E3DCCB; padding: 40px; box-sizing: border-box; display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<label for="adresse" style="font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #3A4452">Adresse du bien</label>
+<input id="adresse" placeholder="Rue, ville" required="required" style="min-height: 48px; padding: 0 14px; border: 1px solid #C9C0AC; background: #FFFFFF; font-family: 'Jost', sans-serif; font-size: 16px; box-sizing: border-box; width: 100%" type="text"/>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 20px">
+<div style="flex: 1 1 160px; display: flex; flex-direction: column; gap: 8px">
+<label for="type" style="font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #3A4452">Type de bien</label>
+<select id="type" style="min-height: 48px; padding: 0 12px; border: 1px solid #C9C0AC; background: #FFFFFF; font-family: 'Jost', sans-serif; font-size: 16px; width: 100%; box-sizing: border-box">
+<option>Maison</option>
+<option>Appartement</option>
+<option>Terrain</option>
+<option>Autre</option>
+</select>
+</div>
+<div style="flex: 1 1 160px; display: flex; flex-direction: column; gap: 8px">
+<label for="surface" style="font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #3A4452">Surface (m²)</label>
+<input id="surface" placeholder="Ex. 85" required="required" style="min-height: 48px; padding: 0 14px; border: 1px solid #C9C0AC; background: #FFFFFF; font-family: 'Jost', sans-serif; font-size: 16px; box-sizing: border-box; width: 100%" type="text"/>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 20px">
+<div style="flex: 1 1 160px; display: flex; flex-direction: column; gap: 8px">
+<label for="email" style="font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #3A4452">E-mail</label>
+<input id="email" placeholder="vous@exemple.fr" required="required" style="min-height: 48px; padding: 0 14px; border: 1px solid #C9C0AC; background: #FFFFFF; font-family: 'Jost', sans-serif; font-size: 16px; box-sizing: border-box; width: 100%" type="email"/>
+</div>
+<div style="flex: 1 1 160px; display: flex; flex-direction: column; gap: 8px">
+<label for="tel" style="font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: #3A4452">Téléphone</label>
+<input id="tel" placeholder="06 00 00 00 00" required="required" style="min-height: 48px; padding: 0 14px; border: 1px solid #C9C0AC; background: #FFFFFF; font-family: 'Jost', sans-serif; font-size: 16px; box-sizing: border-box; width: 100%" type="tel"/>
+</div>
+</div>
+<button class="btn-dark" style="min-height: 52px; border: 0; background: #16202E; color: #F8F5EF; font-family: 'Jost', sans-serif; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase; cursor: pointer" type="submit">Demander mon estimation</button>
+<p style="margin: 0; font-size: 13px; color: #5B6572">Vos données ne sont utilisées que pour répondre à votre demande.</p>
+<p class="form-feedback" id="estimate-feedback" role="status"></p></form>
+</section>
+<!-- SECTEUR -->
+<section id="secteur" style="background: #FFFFFF; border-top: 1px solid #E3DCCB; border-bottom: 1px solid #E3DCCB">
+<div style="max-width: 1200px; margin: 0 auto; padding: 96px 40px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 64px">
+<div style="flex: 1 1 420px; min-width: 0">
+<p style="margin: 0 0 16px; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #8A6A36; font-weight: 500">Mon secteur</p>
+<h2 style="margin: 0 0 24px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 48px; line-height: 1.12">Carrières-sur-Seine et ses alentours</h2>
+<p style="margin: 0 0 32px; color: #3A4452">Connaître un quartier, ses rues, ses atouts et ses prix, c'est la base d'une estimation juste et d'une recherche efficace. J'interviens sur Carrières-sur-Seine et les communes voisines.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px">
+<span style="padding: 10px 20px; border: 1px solid #16202E; font-size: 15px">Carrières-sur-Seine</span>
+<span style="padding: 10px 20px; border: 1px solid #C9C0AC; font-size: 15px">Chatou</span>
+<span style="padding: 10px 20px; border: 1px solid #C9C0AC; font-size: 15px">Croissy-sur-Seine</span>
+<span style="padding: 10px 20px; border: 1px solid #C9C0AC; font-size: 15px">Montesson</span>
+<span style="padding: 10px 20px; border: 1px solid #C9C0AC; font-size: 15px">Houilles</span>
+<span style="padding: 10px 20px; border: 1px solid #C9C0AC; font-size: 15px">Le Vésinet</span>
+<span style="padding: 10px 20px; border: 1px solid #C9C0AC; font-size: 15px">Sartrouville</span>
+</div>
+</div>
+<div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<div style="padding: 32px; background: #F8F5EF; border: 1px solid #E3DCCB">
+<div style="font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #5B6572">Prix moyen au m²</div>
+<div style="margin-top: 8px; font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 500">[À compléter]</div>
+</div>
+<div style="padding: 32px; background: #F8F5EF; border: 1px solid #E3DCCB">
+<div style="font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #5B6572">Délai moyen de vente</div>
+<div style="margin-top: 8px; font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 500">[À compléter]</div>
+</div>
+</div>
+</div>
+</section>
+<!-- A PROPOS -->
+<section id="apropos" style="max-width: 1200px; margin: 0 auto; padding: 96px 40px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 72px; align-items: center">
+<div style="flex: 1 1 360px; min-width: 0; position: relative; padding: 0 24px 24px 0">
+<div style="position: absolute; left: 24px; top: 24px; right: 0; bottom: 0; border: 1px solid #8A6A36"></div>
+<div style="position: relative; height: 520px; background: #E3DCCB; display: flex; align-items: flex-end; padding: 28px; box-sizing: border-box">
+<span style="font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #3A4452">Photo de Chrystelle · à remplacer</span>
+</div>
+</div>
+<div style="flex: 1 1 440px; min-width: 0">
+<p style="margin: 0 0 16px; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #8A6A36; font-weight: 500">À propos</p>
+<h2 style="margin: 0 0 24px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 48px; line-height: 1.12">Chrystelle Couedor</h2>
+<p style="margin: 0 0 20px; color: #3A4452">Mandataire indépendante en immobilier du réseau iad France, j'accompagne les particuliers de Carrières-sur-Seine et des communes voisines dans leurs projets de vente, d'achat et de location.</p>
+<p style="margin: 0 0 32px; color: #3A4452">Mon approche : une relation de confiance, des conseils honnêtes et un suivi personnalisé du premier rendez-vous jusqu'à la remise des clés.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 32px; font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500">
+<span>Écoute</span><span>Transparence</span><span>Disponibilité</span>
+</div>
+</div>
+</section>
+<!-- AVIS -->
+<section id="avis" style="background: #FFFFFF; border-top: 1px solid #E3DCCB; border-bottom: 1px solid #E3DCCB">
+<div style="max-width: 1200px; margin: 0 auto; padding: 96px 40px; box-sizing: border-box">
+<p style="margin: 0 0 16px; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #8A6A36; font-weight: 500">Avis clients</p>
+<h2 style="margin: 0 0 56px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 48px; line-height: 1.12">Ils m'ont fait confiance</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 32px">
+<figure style="flex: 1 1 300px; min-width: 0; margin: 0; padding: 36px; background: #F8F5EF; border: 1px solid #E3DCCB; box-sizing: border-box">
+<div style="font-family: 'Cormorant Garamond', serif; font-size: 56px; line-height: 0.6; color: #8A6A36">“</div>
+<blockquote style="margin: 16px 0 24px; padding: 0; color: #3A4452">[Avis client à insérer]</blockquote>
+<figcaption style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase">[Prénom N.] · Vendeur</figcaption>
+</figure>
+<figure style="flex: 1 1 300px; min-width: 0; margin: 0; padding: 36px; background: #F8F5EF; border: 1px solid #E3DCCB; box-sizing: border-box">
+<div style="font-family: 'Cormorant Garamond', serif; font-size: 56px; line-height: 0.6; color: #8A6A36">“</div>
+<blockquote style="margin: 16px 0 24px; padding: 0; color: #3A4452">[Avis client à insérer]</blockquote>
+<figcaption style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase">[Prénom N.] · Acquéreur</figcaption>
+</figure>
+<figure style="flex: 1 1 300px; min-width: 0; margin: 0; padding: 36px; background: #F8F5EF; border: 1px solid #E3DCCB; box-sizing: border-box">
+<div style="font-family: 'Cormorant Garamond', serif; font-size: 56px; line-height: 0.6; color: #8A6A36">“</div>
+<blockquote style="margin: 16px 0 24px; padding: 0; color: #3A4452">[Avis client à insérer]</blockquote>
+<figcaption style="font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase">[Prénom N.] · Propriétaire bailleur</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<!-- CONTACT -->
+<section id="contact" style="background: #16202E; color: #F8F5EF">
+<div style="max-width: 1200px; margin: 0 auto; padding: 96px 40px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 64px; align-items: center">
+<div style="flex: 1 1 420px; min-width: 0">
+<p style="margin: 0 0 16px; font-size: 13px; letter-spacing: 0.24em; text-transform: uppercase; color: #D8BC8A; font-weight: 500">Contact</p>
+<h2 style="margin: 0 0 24px; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 52px; line-height: 1.1">Parlons de votre projet</h2>
+<p style="margin: 0; font-weight: 300; color: #D5D9DF; max-width: 480px">Un premier échange est offert, sans engagement. Je vous réponds dans les meilleurs délais.</p>
+</div>
+<div style="flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
+<div>
+<div style="font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #D8BC8A">Téléphone</div>
+<a data-contact="phone" href="tel:+33600000000" style="font-family: 'Cormorant Garamond', serif; font-size: 32px; color: #F8F5EF">[06 00 00 00 00]</a>
+</div>
+<div>
+<div style="font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #D8BC8A">E-mail</div>
+<a data-contact="email" href="mailto:contact@exemple.fr" style="font-family: 'Cormorant Garamond', serif; font-size: 32px; color: #F8F5EF">[prenom.nom@exemple.fr]</a>
+</div>
+<div>
+<div style="font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #D8BC8A">Zone d'intervention</div>
+<div style="font-family: 'Cormorant Garamond', serif; font-size: 32px">Carrières-sur-Seine et alentours</div>
+</div>
+<div>
+<a class="btn-light" href="#estimation" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 32px; background: #D8BC8A; color: #16202E; font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase">Prendre rendez-vous</a>
+</div>
+</div>
+</div>
+</section>
+<!-- FOOTER -->
+<footer style="background: #0F1722; color: #B8BFC9; font-size: 13px; line-height: 1.7">
+<div style="max-width: 1200px; margin: 0 auto; padding: 48px 40px; box-sizing: border-box; display: flex; flex-direction: column; gap: 16px">
+<div style="font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: #F8F5EF">Chrystelle Couedor · Conseil immobilier</div>
+<p style="margin: 0; max-width: 900px">Chrystelle Couedor, mandataire indépendante en immobilier (agent commercial) du réseau iad France, immatriculée au RSAC de [ville] sous le numéro [N° RSAC]. Carte professionnelle de l'agence mandante : [n° de carte, préfecture]. Garantie financière : [garant]. Assurance responsabilité civile professionnelle : [assureur]. Médiateur de la consommation : [nom et coordonnées]. Honoraires : voir barème affiché et disponible sur demande.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 24px">
+<a href="#contact" title="Informations à compléter avant publication">Mentions légales</a>
+<a href="#contact" title="Informations à compléter avant publication">Politique de confidentialité</a>
+<a href="#contact" title="Informations à compléter avant publication">Barème d'honoraires</a>
+</div>
+<a class="admin-link" href="admin.html">Espace professionnel</a></div>
+</footer>
+</div>
+</body>
+</html>

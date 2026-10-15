@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Administration — Chrystelle Couedor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/admin.css">
+<script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script defer src="assets/js/config.js"></script>
+<script defer src="assets/js/store.js"></script>
+<script defer src="assets/js/admin.js"></script>
+</head>
+<body>
+<div id="auth-gate" class="auth-screen" hidden>
+  <form id="login-form" class="login-box">
+    <div class="monogram">C</div><div class="eyebrow">ESPACE PROFESSIONNEL</div>
+    <h1>Bienvenue, Chrystelle.</h1><p>Connectez-vous pour gérer les annonces de votre vitrine immobilière.</p>
+    <label for="login-email">Adresse e-mail</label><input type="email" id="login-email" autocomplete="username" required placeholder="vous@agence.fr">
+    <label for="login-password">Mot de passe</label><input type="password" id="login-password" autocomplete="current-password" required placeholder="Votre mot de passe">
+    <p id="login-error" class="error-text" role="alert"></p>
+    <button class="btn btn-dark full" type="submit">Se connecter →</button><a href="index.html" class="go-back">← Revenir au site</a>
+  </form>
+</div>
+<div id="admin-shell" class="app" hidden>
+  <aside class="sidebar" aria-label="Navigation de l’administration">
+    <a class="brand" href="index.html"><span class="brand-mark">C</span><span class="brand-text">Chrystelle Couedor<small>CONSEIL IMMOBILIER</small></span></a>
+    <div class="sidebar-divider"></div><p class="sidebar-label">ESPACE DE GESTION</p>
+    <nav class="side-nav" aria-label="Tableau de bord">
+      <button type="button" class="side-link active" data-view="overview"><span class="nav-icon">◫</span> Vue d’ensemble</button>
+      <button type="button" class="side-link" data-view="list"><span class="nav-icon">⌂</span> Mes annonces <span class="side-count" id="side-total">0</span></button>
+      <button type="button" class="side-link" data-new><span class="nav-icon">＋</span> Ajouter un bien</button>
+      <button type="button" class="side-link" data-view="help"><span class="nav-icon">ⓘ</span> Aide & mise en ligne</button>
+    </nav>
+    <div class="side-bottom"><div class="side-id"><span class="side-avatar">CC</span><span>Chrystelle Couedor<small>Administration</small></span></div><a href="index.html" target="_blank" rel="noopener noreferrer" class="sidebar-out">↗ Voir mon site</a><button type="button" class="logout-btn" id="logout-btn" hidden>Se déconnecter</button></div>
+  </aside>
+  <div class="workspace">
+    <header class="topbar"><div class="topbar-left"><button id="sidebar-toggle" class="icon-btn" aria-label="Afficher le menu" type="button">☰</button><span class="top-breadcrumb">Administration <span>/</span> <strong id="page-label">Vue d’ensemble</strong></span></div><div class="topbar-right"><span class="work-mode" id="mode-label">Mode démo</span><a class="view-site" href="index.html" target="_blank" rel="noopener noreferrer">Voir le site ↗</a></div></header>
+    <main class="main">
+      <div id="demo-banner" class="demo-banner" hidden><span class="banner-icon">ⓘ</span><div><strong>Mode démonstration locale</strong><span>Les modifications fonctionnent ici mais restent enregistrées uniquement dans ce navigateur. Pour une mise en ligne partagée et protégée, connectez Supabase comme indiqué dans le README.</span></div></div>
+      <div id="alert-zone" class="alert-zone" role="status" aria-live="polite"></div>
+      <section id="view-overview" class="screen">
+        <div class="page-heading"><div><span class="eyebrow">VOTRE ESPACE PERSONNEL</span><h1>Bonjour Chrystelle <span class="wave">✳</span></h1><p>Suivez et gérez vos annonces immobilières depuis un seul endroit.</p></div><button class="btn btn-dark" type="button" data-new>＋ Ajouter un bien</button></div>
+        <div class="stat-grid">
+          <article class="stat-card"><span class="stat-label">Total des biens</span><strong id="stat-total">0</strong><span class="stat-note">Dans votre catalogue</span><span class="stat-icon">⌂</span></article>
+          <article class="stat-card"><span class="stat-label">En ligne</span><strong id="stat-live">0</strong><span class="stat-note">Visibles sur votre site</span><span class="stat-icon">↗</span></article>
+          <article class="stat-card"><span class="stat-label">Brouillons</span><strong id="stat-drafts">0</strong><span class="stat-note">En attente de publication</span><span class="stat-icon">✎</span></article>
+          <article class="stat-card"><span class="stat-label">Vendus & loués</span><strong id="stat-done">0</strong><span class="stat-note">Opérations finalisées</span><span class="stat-icon">✓</span></article>
+        </div>
+        <div class="panel"><div class="panel-title"><div><span class="eyebrow">ACTIVITÉ</span><h2>Annonces récentes</h2></div><button class="text-button" type="button" data-view="list">Voir toutes les annonces →</button></div><div id="overview-list" class="recent-list"></div></div>
+        <div class="tip-strip"><span>✦</span><div><strong>Le saviez-vous ?</strong> Vous pouvez préparer vos annonces en brouillon, puis les publier dès que le lien officiel de l’agence est disponible.</div></div>
+      </section>
+      <section id="view-list" class="screen" hidden>
+        <div class="page-heading"><div><span class="eyebrow">GESTION DU CATALOGUE</span><h1>Mes annonces</h1><p>Ajoutez, modifiez ou archivez vos biens en quelques clics.</p></div><button type="button" class="btn btn-dark" data-new>＋ Ajouter un bien</button></div>
+        <div class="panel list-panel"><div class="list-toolbar"><div class="search-wrap"><span>⌕</span><input id="search-properties" type="search" placeholder="Rechercher un bien, une ville…" aria-label="Rechercher des annonces"></div><select id="filter-status" aria-label="Filtrer par statut"><option value="all">Tous les statuts</option><option value="draft">Brouillons</option><option value="published">En ligne</option><option value="under_offer">Sous compromis</option><option value="sold">Vendus</option><option value="rented">Loués</option><option value="archived">Archivés</option></select><select id="filter-transaction" aria-label="Filtrer par transaction"><option value="all">Vente & location</option><option value="vente">Vente</option><option value="location">Location</option></select></div><div class="table-scroll"><table class="property-table"><thead><tr><th>BIEN</th><th>TYPE</th><th>PRIX</th><th>STATUT</th><th>ANNONCE OFFICIELLE</th><th>ACTIONS</th></tr></thead><tbody id="property-rows"></tbody></table></div><div class="table-foot"><span id="rows-summary">0 annonce</span><div id="local-actions"><button type="button" class="text-button" id="export-json">Exporter une sauvegarde JSON ↓</button><label class="text-button import-label">Importer une sauvegarde <input type="file" id="import-json" accept="application/json,.json" hidden></label></div></div></div>
+      </section>
+      <section id="view-editor" class="screen" hidden>
+        <div class="editor-heading"><button type="button" class="back-link" data-view="list">← Retour aux annonces</button><div class="page-heading"><div><span class="eyebrow">FICHE IMMOBILIÈRE</span><h1 id="editor-heading">Ajouter un bien</h1><p>Remplissez les informations essentielles et choisissez quand le publier.</p></div><span id="edit-status-pill" class="status-pill draft">Brouillon</span></div></div>
+        <form id="property-form" novalidate>
+          <div class="editor-grid"><div class="editor-main">
+            <div class="panel form-panel"><div class="section-head"><span class="section-number">01</span><div><h2>Informations principales</h2><p>La présentation de votre bien sur le site public.</p></div></div>
+              <div class="form-grid">
+                <label class="field wide">Titre du bien <span>*</span><input id="p-title" maxlength="160" required placeholder="Ex. Appartement lumineux avec terrasse"></label>
+                <label class="field">Ville <span>*</span><input id="p-city" maxlength="120" required placeholder="Ex. Carrières-sur-Seine"></label>
+                <label class="field">Type de bien <select id="p-type"><option>Appartement</option><option>Maison</option><option>Studio</option><option>Terrain</option><option>Loft</option><option>Autre</option></select></label>
+                <label class="field">Transaction <span>*</span><select id="p-transaction"><option value="vente">Vente</option><option value="location">Location</option></select></label>
+                <label class="field">Prix (€) <input id="p-price" type="number" min="0" step="1" placeholder="Ex. 425000"></label>
+                <label class="field">Surface (m²) <input id="p-area" type="number" min="0" step="1" placeholder="Ex. 85"></label>
+                <label class="field">Nombre de pièces <input id="p-rooms" type="number" min="0" step="1" placeholder="Ex. 4"></label>
+                <label class="field">Nombre de chambres <input id="p-bedrooms" type="number" min="0" step="1" placeholder="Ex. 2"></label>
+                <label class="field">DPE <select id="p-dpe"><option value="">Non renseigné</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option><option>F</option><option>G</option><option>NC</option></select></label>
+                <label class="field wide">Honoraires / informations obligatoires <input id="p-fees" maxlength="220" placeholder="Ex. Honoraires à la charge du vendeur"></label>
+                <label class="field only-rent">Charges mensuelles (€) <input id="p-charges" type="number" min="0" placeholder="Ex. 90"></label>
+                <label class="field only-rent">Dépôt de garantie (€) <input id="p-deposit" type="number" min="0" placeholder="Ex. 1200"></label>
+                <label class="field wide only-rent check-field"><input id="p-furnished" type="checkbox"> Location meublée</label>
+                <label class="field wide">Description complémentaire <textarea id="p-description" rows="4" maxlength="4000" placeholder="Points forts du bien…"></textarea></label>
+              </div></div>
+            <div class="panel form-panel"><div class="section-head"><span class="section-number">02</span><div><h2>Photos du bien</h2><p>Ajoutez jusqu’à 12 photos. La première est utilisée en couverture.</p></div></div><label class="upload-area" for="p-photos"><span class="upload-symbol">↑</span><strong>Cliquez pour ajouter des photos</strong><small>JPG, PNG ou WEBP · 12 Mo max par fichier · optimisées automatiquement</small><input type="file" id="p-photos" accept="image/*" multiple hidden></label><p class="photo-info" id="photo-info"></p><div id="photo-grid" class="photo-grid"></div></div>
+            <div class="panel form-panel"><div class="section-head"><span class="section-number">03</span><div><h2>Lien vers l’agence</h2><p>Le clic sur un bien doit mener à son annonce officielle.</p></div></div><label class="field">URL de l’annonce <span>obligatoire pour publier</span><input id="p-url" type="url" placeholder="https://www.agence.fr/annonce/mon-bien"></label><p class="field-hint">La redirection s’ouvre dans un nouvel onglet. Les liens non sécurisés (javascript:, etc.) sont refusés.</p><a id="preview-url" class="text-button" href="#" target="_blank" rel="noopener noreferrer" hidden>Tester le lien officiel ↗</a></div>
+          </div><aside class="editor-side"><div class="panel form-panel sticky-panel"><span class="eyebrow">VISIBILITÉ</span><h2>Publication</h2><p>Vous gardez le contrôle sur l’affichage de chaque annonce.</p><label class="field">Statut du bien <select id="p-status"><option value="draft">Brouillon — invisible</option><option value="published">Publié — visible</option><option value="under_offer">Sous compromis — visible</option><option value="sold">Vendu — visible</option><option value="rented">Loué — visible</option><option value="archived">Archivé — invisible</option></select></label><label class="check-field"><input id="p-featured" type="checkbox"> Mettre en avant cette annonce</label><div class="publish-note"><span>✦</span><span>En mode « Brouillon », l’annonce n’apparaîtra jamais sur votre site public.</span></div><button class="btn btn-dark full" id="save-property" type="submit">Enregistrer le bien →</button><button class="btn btn-outline full" id="save-draft" type="button">Enregistrer comme brouillon</button><p class="editor-message" id="editor-message" role="status"></p></div></aside></div>
+        </form>
+      </section>
+      <section id="view-help" class="screen" hidden><div class="page-heading"><div><span class="eyebrow">GUIDE DE GESTION</span><h1>En toute simplicité</h1><p>Les étapes pour mettre vos biens en ligne.</p></div></div><div class="help-grid"><article class="panel help-card"><span>01 / CRÉER</span><h2>Ajoutez un bien</h2><p>Renseignez son titre, sa ville, son prix, ses caractéristiques et ses photos. Vous pouvez tout enregistrer en brouillon.</p></article><article class="panel help-card"><span>02 / RELIER</span><h2>Ajoutez le lien</h2><p>Copiez l’adresse exacte de l’annonce sur le site de votre agence, et collez-la dans « Lien vers l’agence ».</p></article><article class="panel help-card"><span>03 / PUBLIER</span><h2>Choisissez « Publié »</h2><p>Le bien s’affiche alors sur votre site. Chaque clic ouvre son annonce officielle dans un nouvel onglet.</p></article></div><div class="panel help-panel"><h2>Important pour la mise en ligne</h2><p>En mode démo, ce dashboard fonctionne localement, sans compte ni mot de passe : ne publiez pas cette version pour un vrai usage professionnel. Pour partager les annonces entre appareils et protéger les modifications, configurez Supabase et activez ses règles d’accès selon le fichier <code>supabase/schema.sql</code>.</p><p>Les mentions légales, coordonnées, photos du portrait, avis clients et informations réglementaires sont encore à compléter avec les données réelles de Chrystelle avant publication.</p></div></section>
+    </main>
+  </div>
+</div>
+</body>
+</html>
